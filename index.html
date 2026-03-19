@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shucbert & Nica 💗</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(#ffe4ec, #fff);
+    text-align: center;
+}
+
+/* LOCK */
+#lock {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: #ffe4ec;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+input {
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+}
+
+button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 10px;
+    background: #ff6b9e;
+    color: white;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+/* MAIN */
+#main { display: none; padding: 20px; }
+
+h1 { color: #ff6b9e; }
+
+.card {
+    background: white;
+    margin: 15px auto;
+    padding: 15px;
+    border-radius: 20px;
+    max-width: 400px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.day { color: #ff6b9e; font-weight: bold; }
+
+/* HEART */
+.heart {
+    position: fixed;
+    bottom: 0;
+    animation: up 5s linear infinite;
+}
+@keyframes up {
+    from {transform: translateY(0);}
+    to {transform: translateY(-100vh);}
+}
+
+/* SURPRISE */
+#surprise {
+    display: none;
+    padding: 20px;
+}
+
+.big-heart {
+    font-size: 80px;
+    animation: pulse 1s infinite;
+}
+@keyframes pulse {
+    0%{transform: scale(1);}
+    50%{transform: scale(1.2);}
+    100%{transform: scale(1);}
+}
+</style>
+</head>
+
+<body>
+
+<!-- PASSWORD -->
+<div id="lock">
+    <h2>💗 Shucbert & Nica 💗</h2>
+    <p>our first little story 🥺</p>
+    <input type="password" id="pw" placeholder="our secret...">
+    <button onclick="openApp()">open 💌</button>
+</div>
+
+<!-- MAIN -->
+<div id="main">
+
+<h1>💗 Our First Date 💗</h1>
+<p>Shucbert & Nica</p>
+
+<audio autoplay loop>
+<source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3">
+</audio>
+
+<div class="card">
+<div class="day">🌸 Saturday</div>
+Photobooth • Tugu • Makan • PS<br>
+🤍 outfit putih
+</div>
+
+<div class="card">
+<div class="day">✨ Sunday</div>
+Ganjuran • Keliling Jogja<br>
+🖤 outfit hitam
+</div>
+
+<div class="card">
+<div class="day">🌿 Monday</div>
+Tempo Gelato<br>
+🤎 putih/cream
+</div>
+
+<div class="card">
+<div class="day">🌙 Tuesday</div>
+Cheesecake • Alkid
+</div>
+
+<div class="card">
+<div class="day">☕ Wednesday</div>
+Buku Akik • Kaliurang • Coffee
+</div>
+
+<div class="card">
+<div class="day">🌼 Thursday</div>
+Free day
+</div>
+
+<div class="card">
+<div class="day">💛 Friday</div>
+Kopi Tuku • Mie Bonafide
+</div>
+
+<div class="card">
+💌  
+ini mungkin cuma pertemuan pertama kita,  
+tapi aku harap…  
+hari-hari kecil ini jadi sesuatu yang kita ingat nanti 🤍  
+aku harap kamu nyaman,  
+dan aku harap ini jadi awal yang menyenangkan untuk kita 💗  
+</div>
+
+<button onclick="showSurprise()">🎁 open little surprise</button>
+
+</div>
+
+<!-- SURPRISE -->
+<div id="surprise">
+    <div class="big-heart">💗</div>
+    <h2>for you, nica 🥺</h2>
+    <p>
+        aku ga tau ke depan bakal gimana,  
+        tapi aku seneng banget bisa ketemu kamu sekarang 🤍  
+
+        semoga pertemuan pertama ini  
+        jadi sesuatu yang hangat dan menyenangkan  
+
+        dan semoga…  
+        ini bukan yang terakhir 💗
+    </p>
+
+    <button onclick="back()">back</button>
+</div>
+
+<script>
+function openApp(){
+    if(document.getElementById("pw").value==="1234"){
+        document.getElementById("lock").style.display="none";
+        document.getElementById("main").style.display="block";
+    } else {
+        alert("wrong password 🥺");
+    }
+}
+
+function showSurprise(){
+    document.getElementById("main").style.display="none";
+    document.getElementById("surprise").style.display="block";
+}
+
+function back(){
+    document.getElementById("surprise").style.display="none";
+    document.getElementById("main").style.display="block";
+}
+
+/* HEART */
+setInterval(()=>{
+    let h=document.createElement("div");
+    h.className="heart";
+    h.innerHTML="💗";
+    h.style.left=Math.random()*100+"vw";
+    document.body.appendChild(h);
+    setTimeout(()=>h.remove(),5000);
+},400);
+</script>
+
+</body>
+</html>
