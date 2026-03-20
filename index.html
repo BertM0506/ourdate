@@ -4,147 +4,170 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Jogja Love Journey: Nica 💗</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💗</text></svg>">
+
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&family=Dancing+Script:wght@700&family=Pacifico&display=swap" rel="stylesheet">
+
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    <div id="progress-container"><div id="progress-bar"></div></div>
+<div id="cinematic">
+    <div class="cinematic-content">
+        <h1 class="main-title">Jogja Love Story 💗</h1>
+        <p class="subtitle">Shucbert x Nica</p>
+    </div>
+</div>
 
-    <audio id="bgm" loop>
-        <source src="musik-kita.mp3" type="audio/mpeg">
-    </audio>
+<div id="progress-container">
+    <div id="progress-bar"></div>
+</div>
 
-    <div id="lock">
-        <div class="lock-card">
-            <div class="pfp-area">
-                <div class="pfp">N</div>
-                <div class="pfp-heart">💗</div>
-                <div class="pfp">S</div>
-            </div>
-            <h2>Private Access</h2>
-            <p>Masukkan tanggal bertemu kita (DDMMYYYY)</p>
-            <input type="tel" id="pw" placeholder="28032026" maxlength="8">
-            <button class="btn-main" onclick="validate()">Unlock My Heart 🔑</button>
+<audio id="bgm" loop>
+    <source src="musik-kita.mp3" type="audio/mpeg">
+</audio>
+
+<div id="lock">
+    <div class="lock-card">
+        <div class="pfp-area">
+            <div class="pfp">N</div>
+            <div class="pfp-heart">💗</div>
+            <div class="pfp">S</div>
         </div>
+        <h2>Private Access</h2>
+        <p>Masukkan tanggal bertemu kita (DDMMYYYY)</p>
+        <input type="tel" id="pw" placeholder="28032026" maxlength="8">
+        <button class="btn-main" onclick="validate()">Unlock My Heart 🔑</button>
     </div>
+</div>
 
-    <div id="main">
-        <header class="glass-header">
-            <div class="greeting" id="timeGreeting">Hello, Beautiful</div>
-            <h1 class="main-title">Jogja Love Trip</h1>
-            <p class="subtitle">Shucbert x Nica • 2026</p>
-        </header>
+<div id="main">
+    <header class="glass-header">
+        <div class="greeting" id="timeGreeting">Hello, Beautiful</div>
+        <h1 class="main-title">Jogja Love Trip</h1>
+        <p class="subtitle">Shucbert x Nica • 2026</p>
+    </header>
 
-        <section class="section-container">
-            <div class="countdown-glass" id="timer">
-                <div class="t-item"><span id="d">00</span><small>Hari</small></div>
-                <div class="t-item"><span id="h">00</span><small>Jam</small></div>
-                <div class="t-item"><span id="m">00</span><small>Menit</small></div>
-                <div class="t-item"><span id="s">00</span><small>Detik</small></div>
-            </div>
-        </section>
-
-        <section class="section-container">
-            <div class="quote-card" onclick="showNewQuote()">
-                <p id="quoteText">"Klik di sini untuk pelukan virtual... 🤗"</p>
-                <small>— Dari Shucbert dengan Sayang</small>
-            </div>
-        </section>
-
-        <section class="section-container">
-            <h3 class="section-label">Our Memories 📖</h3>
-            <div class="polaroid-slider">
-                <div class="polaroid">
-                    <div class="photo-frame"><img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?q=80&w=500"></div>
-                    <div class="photo-desc"><h4>The Start ✨</h4><p>Ingat nggak pertama kali kita punya rencana ini?</p></div>
-                </div>
-                <div class="polaroid">
-                    <div class="photo-frame"><img src="https://images.unsplash.com/photo-1522673607200-1648832cee98?q=80&w=500"></div>
-                    <div class="photo-desc"><h4>Counting Days 🌸</h4><p>Setiap detik berharga kalau dilewati bareng kamu.</p></div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section-container">
-            <h3 class="section-label">Date Itinerary 📍</h3>
-            <div class="itinerary-list">
-                <div class="plan-card" id="day-28" onclick="togglePlan(this)">
-                    <div class="plan-header"><span class="day-tag pink">28 MAR</span> 🌸 Sat: Opening</div>
-                    <div class="plan-details">
-                        <p>📸 Photobooth @Tugu Jogja</p>
-                        <p>🍜 Ayam Serundeng / Mie Sapi Djaya / Ramen</p>
-                        <p>🎮 Main PS Vamos</p>
-                        <div class="outfit-tag">👗 Outfit: <b>Putih 🤍</b></div>
-                    </div>
-                </div>
-
-                <div class="plan-card" id="day-29" onclick="togglePlan(this)">
-                    <div class="plan-header"><span class="day-tag soft">29 MAR</span> ✨ Sun: Spiritual</div>
-                    <div class="plan-details">
-                        <p>⛪ Ibadah di Ganjuran</p>
-                        <p>🚶 Keliling Jogja Slow Drive</p>
-                        <div class="outfit-tag">👗 Outfit: <b>Hitam 🖤</b></div>
-                    </div>
-                </div>
-
-                <div class="plan-card" id="day-30" onclick="togglePlan(this)">
-                    <div class="plan-header"><span class="day-tag gray">30 MAR</span> 🌿 Mon: Sweet</div>
-                    <div class="plan-details">
-                        <p>💭 Optional Day / Santai</p>
-                        <p>🍦 Tempo Gelato Time!</p>
-                        <div class="outfit-tag">👗 Outfit: <b>Putih / Cream 🤎</b></div>
-                    </div>
-                </div>
-
-                <div class="plan-card" id="day-31" onclick="togglePlan(this)">
-                    <div class="plan-header"><span class="day-tag gray">31 MAR</span> 🌙 Tue: Home Date</div>
-                    <div class="plan-details"><p>🍰 Cheesecake & 🌌 Alkid Night Stroll</p></div>
-                </div>
-
-                <div class="plan-card" id="day-01" onclick="togglePlan(this)">
-                    <div class="plan-header"><span class="day-tag gray">01 APR</span> ☕ Wed: Adventure</div>
-                    <div class="plan-details"><p>📚 Buku Akik, 🛵 Skuter Kaliurang & ☕ Luke Coffee</p></div>
-                </div>
-
-                <div class="plan-card" id="day-02" onclick="togglePlan(this)">
-                    <div class="plan-header"><span class="day-tag gray">02 APR</span> 🌼 Thu: Rest</div>
-                    <div class="plan-details"><p>🌿 Free Day / Explore / Istirahat</p></div>
-                </div>
-
-                <div class="plan-card" id="day-03" onclick="togglePlan(this)">
-                    <div class="plan-header"><span class="day-tag gray">03 APR</span> 💛 Fri: Culinary</div>
-                    <div class="plan-details"><p>☕ Kopi Tuku Kotabaru & 🍜 Mie Bonafide</p></div>
-                </div>
-
-                <div class="plan-card" id="day-04" onclick="togglePlan(this)">
-                    <div class="plan-header"><span class="day-tag pink">04 APR</span> 🌸 Sat: Free Date</div>
-                    <div class="plan-details"><p>💕 Isi sesuai mood! 👕 Outfit: Bebas/Couple</p></div>
-                </div>
-
-                <div class="plan-card" id="day-05" onclick="togglePlan(this)">
-                    <div class="plan-header"><span class="day-tag soft">05 APR</span> ✨ Sun: Closing</div>
-                    <div class="plan-details"><p>🌅 Quality Time Santai 👕 Outfit: Bebas Nyaman</p></div>
-                </div>
-            </div>
-        </section>
-
-        <footer class="main-footer">
-            <a id="waLink" href="#" class="btn-wa">Kirim Pesan Ke Shucbert 💖</a>
-            <button class="btn-surprise" onclick="showSurprise()">A Little Secret... 🤫</button>
-        </footer>
-    </div>
-
-    <div id="overlay" onclick="closeOverlay()">
-        <div class="overlay-card">
-            <span class="flying-heart">💖</span>
-            <h2>For You, Nica</h2>
-            <p>"Kamu adalah baris kode terindah yang pernah aku tulis. Sampai ketemu di Jogja ya, Sayang!"</p>
-            <p style="font-family: 'Pacifico';">- Shucbert</p>
+    <section class="section-container">
+        <div class="countdown-glass" id="timer">
+            <div class="t-item"><span id="d">00</span><small>Hari</small></div>
+            <div class="t-item"><span id="h">00</span><small>Jam</small></div>
+            <div class="t-item"><span id="m">00</span><small>Menit</small></div>
+            <div class="t-item"><span id="s">00</span><small>Detik</small></div>
         </div>
-    </div>
+    </section>
 
-    <script src="script.js"></script>
+    <section class="section-container">
+        <div class="quote-card" onclick="showNewQuote()">
+            <p id="quoteText">"Klik di sini untuk pelukan virtual... 🤗"</p>
+            <small>— Dari Shucbert dengan Sayang</small>
+        </div>
+    </section>
+
+    <section class="section-container">
+        <h3 class="section-label">Our Memories 📖</h3>
+        
+        <div class="upload-box">
+            <p>Tambah Memory Kita 📸</p>
+            <label for="uploadPhoto" class="custom-file-upload">Pilih Foto Terbaik</label>
+            <input type="file" id="uploadPhoto" accept="image/*">
+        </div>
+
+        <div class="polaroid-slider" id="polaroidContainer">
+            <div class="polaroid">
+                <div class="photo-frame"><img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?q=80&w=500"></div>
+                <div class="photo-desc"><h4>The Start ✨</h4><p>Ingat nggak rencana ini?</p></div>
+            </div>
+            <div class="polaroid">
+                <div class="photo-frame"><img src="https://images.unsplash.com/photo-1522673607200-1648832cee98?q=80&w=500"></div>
+                <div class="photo-desc"><h4>Counting Days 🌸</h4><p>Berharga bareng kamu.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-container">
+        <h3 class="section-label">Date Itinerary 📍</h3>
+        <div class="itinerary-list">
+            
+            <div class="plan-card" id="day-28" onclick="togglePlan(this)">
+                <div class="plan-header"><span class="day-tag pink">28 MAR</span> 🌸 Sat: Opening</div>
+                <div class="plan-details">
+                    <p>📸 Photobooth @Tugu Jogja</p>
+                    <p>🍜 Ayam Serundeng / Mie Sapi Djaya / Ramen</p>
+                    <p>🎮 Main PS Vamos</p>
+                    <div class="outfit-tag">👗 Outfit: <b>Putih 🤍</b></div>
+                </div>
+            </div>
+
+            <div class="plan-card" id="day-29" onclick="togglePlan(this)">
+                <div class="plan-header"><span class="day-tag soft">29 MAR</span> ✨ Sun: Spiritual</div>
+                <div class="plan-details">
+                    <p>⛪ Ibadah di Ganjuran</p>
+                    <p>🚶 Keliling Jogja Slow Drive</p>
+                    <div class="outfit-tag">👗 Outfit: <b>Hitam 🖤</b></div>
+                </div>
+            </div>
+
+            <div class="plan-card" id="day-30" onclick="togglePlan(this)">
+                <div class="plan-header"><span class="day-tag gray">30 MAR</span> 🌿 Mon: Sweet</div>
+                <div class="plan-details">
+                    <p>💭 Optional Day / Santai</p>
+                    <p>🍦 Tempo Gelato Time!</p>
+                    <div class="outfit-tag">👗 Outfit: <b>Putih / Cream 🤎</b></div>
+                </div>
+            </div>
+
+            <div class="plan-card" id="day-31" onclick="togglePlan(this)">
+                <div class="plan-header"><span class="day-tag gray">31 MAR</span> 🌙 Tue: Home Date</div>
+                <div class="plan-details"><p>🍰 Cheesecake & 🌌 Alkid Night Stroll</p></div>
+            </div>
+
+            <div class="plan-card" id="day-01" onclick="togglePlan(this)">
+                <div class="plan-header"><span class="day-tag gray">01 APR</span> ☕ Wed: Adventure</div>
+                <div class="plan-details"><p>📚 Buku Akik, 🛵 Skuter Kaliurang & ☕ Luke Coffee</p></div>
+            </div>
+
+            <div class="plan-card" id="day-02" onclick="togglePlan(this)">
+                <div class="plan-header"><span class="day-tag gray">02 APR</span> 🌼 Thu: Rest</div>
+                <div class="plan-details"><p>🌿 Free Day / Explore / Istirahat</p></div>
+            </div>
+
+            <div class="plan-card" id="day-03" onclick="togglePlan(this)">
+                <div class="plan-header"><span class="day-tag gray">03 APR</span> 💛 Fri: Culinary</div>
+                <div class="plan-details"><p>☕ Kopi Tuku Kotabaru & 🍜 Mie Bonafide</p></div>
+            </div>
+
+            <div class="plan-card" id="day-04" onclick="togglePlan(this)">
+                <div class="plan-header"><span class="day-tag pink">04 APR</span> 🌸 Sat: Free Date</div>
+                <div class="plan-details"><p>💕 Isi sesuai mood! 👕 Outfit: Bebas/Couple</p></div>
+            </div>
+
+            <div class="plan-card" id="day-05" onclick="togglePlan(this)">
+                <div class="plan-header"><span class="day-tag soft">05 APR</span> ✨ Sun: Closing</div>
+                <div class="plan-details"><p>🌅 Quality Time Santai 👕 Outfit: Bebas Nyaman</p></div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <a id="waLink" href="#" class="btn-wa">Kirim Pesan Ke Shucbert 💬</a>
+        <button class="btn-surprise" onclick="showSurprise()">A Little Secret... 🤫</button>
+    </footer>
+</div>
+
+<div id="overlay" onclick="closeOverlay()">
+    <div class="overlay-card">
+        <span class="flying-heart">💖</span>
+        <h2>For You, Nica</h2>
+        <p>"Kamu adalah baris kode terindah yang pernah aku tulis. Sampai ketemu di Jogja ya, Sayang!"</p>
+        <p style="font-family: 'Pacifico';">- Shucbert</p>
+    </div>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
