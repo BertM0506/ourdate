@@ -1,0 +1,65 @@
+:root {
+    --primary: #ff8fa3;
+    --soft: #ffb3c1;
+    --bg: #fff5f6;
+    --glass: rgba(255, 255, 255, 0.9);
+}
+
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; outline: none; }
+
+body { margin: 0; font-family: 'Quicksand', sans-serif; background: var(--bg); color: #444; overflow-x: hidden; }
+
+/* Progress Bar */
+#progress-container { position: fixed; top: 0; left: 0; width: 100%; height: 6px; background: #ffe0e6; z-index: 10001; }
+#progress-bar { height: 100%; width: 0%; background: var(--primary); transition: 1.5s; }
+
+/* LOCK SCREEN */
+#lock { position: fixed; inset: 0; background: white; z-index: 10000; display: flex; justify-content: center; align-items: center; transition: 1s cubic-bezier(0.85, 0, 0.15, 1); }
+.lock-card { text-align: center; width: 85%; max-width: 320px; }
+.pfp-area { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 20px; }
+.pfp { width: 55px; height: 55px; background: var(--primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; }
+.pfp-heart { animation: pulse 1.2s infinite; font-size: 1.5rem; }
+@keyframes pulse { 0%, 100% {transform: scale(1);} 50% {transform: scale(1.3);} }
+
+input#pw { width: 100%; padding: 18px; border-radius: 20px; border: 2px solid #f0f0f0; text-align: center; font-size: 1.3rem; margin: 20px 0; background: #fafafa; }
+.btn-main { background: var(--primary); color: white; border: none; padding: 18px; width: 100%; border-radius: 20px; font-weight: 700; cursor: pointer; }
+
+/* MAIN APP */
+#main { display: none; opacity: 0; transition: 1.5s; padding-bottom: 50px; }
+.glass-header { background: white; padding: 60px 20px 80px 20px; text-align: center; border-bottom-left-radius: 45px; border-bottom-right-radius: 45px; box-shadow: 0 10px 30px rgba(0,0,0,0.02); }
+.main-title { font-family: 'Pacifico', cursive; color: var(--primary); font-size: 2.3rem; margin: 5px 0; }
+.greeting { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: #aaa; font-weight: 700; }
+
+/* COUNTDOWN */
+.countdown-glass { background: var(--primary); margin: -45px 20px 20px 20px; padding: 25px; border-radius: 30px; display: flex; justify-content: space-between; color: white; box-shadow: 0 15px 35px rgba(255, 143, 163, 0.3); }
+.t-item span { display: block; font-size: 1.8rem; font-weight: 700; }
+.t-item small { font-size: 0.6rem; text-transform: uppercase; opacity: 0.9; }
+
+/* QUOTE CARD */
+.quote-card { background: white; margin: 15px 20px; padding: 20px; border-radius: 25px; text-align: center; border: 2px dashed var(--soft); cursor: pointer; }
+#quoteText { font-style: italic; font-size: 0.9rem; color: #666; transition: 0.3s; }
+
+/* POLAROID HEARTBEAT */
+.polaroid-slider { display: flex; overflow-x: auto; padding: 10px 20px 30px 20px; gap: 20px; }
+.polaroid { flex: 0 0 260px; background: white; padding: 12px; border-radius: 5px; box-shadow: 0 10px 20px rgba(0,0,0,0.06); transform: rotate(-2deg); animation: heartbeat 2s infinite ease-in-out; }
+@keyframes heartbeat { 0%, 100% { transform: scale(1) rotate(-2deg); } 50% { transform: scale(1.03) rotate(-2deg); } }
+.photo-frame img { width: 100%; height: 220px; object-fit: cover; }
+.photo-desc h4 { font-family: 'Dancing Script'; margin: 10px 0 0 0; color: var(--primary); font-size: 1.4rem; }
+
+/* CHECKLIST & ITINERARY */
+.itinerary-list { padding: 0 20px; }
+.plan-card { background: white; border-radius: 22px; padding: 18px 22px; margin-bottom: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.01); cursor: pointer; position: relative; }
+.plan-header { display: flex; align-items: center; gap: 12px; font-weight: 700; font-size: 0.95rem; }
+.day-tag { padding: 5px 10px; border-radius: 8px; font-size: 0.65rem; color: white; font-weight: 800; }
+.pink { background: var(--primary); } .soft { background: var(--soft); } .gray { background: #d1d1d1; }
+.plan-details { display: none; margin-top: 15px; border-top: 1px dashed #eee; padding-top: 15px; font-size: 0.85rem; line-height: 1.7; }
+.outfit-tag { background: #fff8f9; padding: 10px; border-radius: 12px; margin-top: 10px; border-left: 4px solid var(--primary); }
+.completed-day { opacity: 0.6; filter: grayscale(0.5); }
+.completed-day::after { content: "✅"; position: absolute; right: 20px; top: 18px; font-size: 1.2rem; }
+.completed-day .plan-header { text-decoration: line-through; }
+
+/* BUTTONS & OVERLAY */
+.btn-wa { display: block; background: #25d366; color: white; text-align: center; text-decoration: none; padding: 16px; border-radius: 50px; font-weight: 700; margin: 25px 20px; }
+.btn-surprise { background: none; border: 1px solid var(--primary); color: var(--primary); padding: 12px; border-radius: 50px; display: block; margin: 0 auto; width: 70%; cursor: pointer; font-weight: 600; }
+#overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.5); backdrop-filter: blur(6px); z-index: 20000; display: none; align-items: center; justify-content: center; }
+.overlay-card { background: white; width: 85%; padding: 45px 25px; border-radius: 35px; text-align: center; }

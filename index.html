@@ -1,269 +1,150 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shucbert & Nica 💗</title>
-<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
-
-<style>
-    :root {
-        --pink-soft: #ffcad4;
-        --pink-deep: #ff8fa3;
-        --cream: #fff1f2;
-    }
-
-    body {
-        margin: 0;
-        font-family: 'Quicksand', sans-serif;
-        background: linear-gradient(135deg, var(--pink-soft), #ffffff);
-        min-height: 100vh;
-        overflow-x: hidden;
-        color: #555;
-    }
-
-    /* LOCK SCREEN */
-    #lock {
-        position: fixed;
-        width: 100%;
-        height: 100%;
-        background: var(--cream);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        z-index: 1000;
-        transition: 0.8s ease-in-out;
-    }
-
-    .lock-content {
-        background: white;
-        padding: 30px;
-        border-radius: 30px;
-        box-shadow: 0 10px 30px rgba(255, 143, 163, 0.2);
-        text-align: center;
-    }
-
-    h2 { font-family: 'Dancing Script', cursive; color: var(--pink-deep); font-size: 2.5rem; margin-bottom: 10px; }
-
-    input {
-        padding: 12px;
-        border-radius: 15px;
-        border: 2px solid var(--pink-soft);
-        outline: none;
-        text-align: center;
-        font-size: 1rem;
-        width: 80%;
-        margin-bottom: 15px;
-    }
-
-    button {
-        padding: 12px 25px;
-        border: none;
-        border-radius: 15px;
-        background: var(--pink-deep);
-        color: white;
-        font-weight: bold;
-        cursor: pointer;
-        transition: 0.3s;
-        box-shadow: 0 4px 15px rgba(255, 143, 163, 0.4);
-    }
-
-    button:hover { transform: scale(1.05); background: #ff758f; }
-
-    /* MAIN CONTENT */
-    #main { display: none; padding: 40px 20px; opacity: 0; transition: 1s; }
-
-    .header-title { font-family: 'Dancing Script', cursive; color: var(--pink-deep); font-size: 3rem; margin-bottom: 5px; }
-
-    .card {
-        background: white;
-        margin: 15px auto;
-        padding: 20px;
-        border-radius: 25px;
-        max-width: 350px;
-        box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-        transition: 0.4s;
-        border-left: 5px solid var(--pink-soft);
-        cursor: pointer;
-    }
-
-    .card:hover { transform: translateY(-5px) rotate(1deg); box-shadow: 0 12px 25px rgba(255, 143, 163, 0.2); }
-
-    .day { color: var(--pink-deep); font-weight: 700; font-size: 1.1rem; margin-bottom: 5px; display: block; }
-
-    /* FLOATING ELEMENTS */
-    .floating {
-        position: fixed;
-        pointer-events: none;
-        z-index: 1;
-        font-size: 20px;
-        animation: floatUp 4s linear infinite;
-        opacity: 0;
-    }
-
-    @keyframes floatUp {
-        0% { transform: translateY(100vh) scale(0); opacity: 0; }
-        20% { opacity: 0.8; }
-        100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
-    }
-
-    /* SURPRISE SECTION */
-    #surprise {
-        display: none;
-        padding: 40px 20px;
-        text-align: center;
-    }
-
-    .big-heart {
-        font-size: 100px;
-        animation: pulse 1.5s infinite;
-        display: inline-block;
-        margin-bottom: 20px;
-    }
-
-    @keyframes pulse {
-        0% { transform: scale(1); }
-        50% { transform: scale(1.15); }
-        100% { transform: scale(1); }
-    }
-
-    .love-letter {
-        background: white;
-        padding: 30px;
-        border-radius: 30px;
-        line-height: 1.8;
-        max-width: 400px;
-        margin: 0 auto;
-        font-style: italic;
-    }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Jogja Love Journey: Nica 💗</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&family=Dancing+Script:wght@700&family=Pacifico&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </head>
-
 <body>
 
-<audio id="mySong" loop>
-    <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mpeg">
-</audio>
+    <div id="progress-container"><div id="progress-bar"></div></div>
 
-<div id="lock">
-    <div class="lock-content">
-        <h2>Hi, Nica! ✨</h2>
-        <p>ketik tanggal bertemu kita ya.. 🌸</p>
-        <input type="password" id="pw" placeholder="DDMMYYYY" maxlength="8">
-        <br>
-        <button onclick="openApp()">Unlock our story 💌</button>
-    </div>
-</div>
+    <audio id="bgm" loop>
+        <source src="musik-kita.mp3" type="audio/mpeg">
+    </audio>
 
-<div id="main">
-    <div class="header-title">Our First Date</div>
-    <p style="margin-top: 0; color: #888;">Shucbert x Nica • 2026</p>
-
-    <div class="card">
-        <span class="day">🌸 Saturday</span>
-        Photobooth • Tugu • Makan • PS<br>
-        <small>🤍 Dresscode: Outfit Putih</small>
+    <div id="lock">
+        <div class="lock-card">
+            <div class="pfp-area">
+                <div class="pfp">N</div>
+                <div class="pfp-heart">💗</div>
+                <div class="pfp">S</div>
+            </div>
+            <h2>Private Access</h2>
+            <p>Masukkan tanggal bertemu kita (DDMMYYYY)</p>
+            <input type="tel" id="pw" placeholder="28032026" maxlength="8">
+            <button class="btn-main" onclick="validate()">Unlock My Heart 🔑</button>
+        </div>
     </div>
 
-    <div class="card">
-        <span class="day">✨ Sunday</span>
-        Ganjuran • Keliling Jogja cantik<br>
-        <small>🖤 Dresscode: Outfit Hitam</small>
+    <div id="main">
+        <header class="glass-header">
+            <div class="greeting" id="timeGreeting">Hello, Beautiful</div>
+            <h1 class="main-title">Jogja Love Trip</h1>
+            <p class="subtitle">Shucbert x Nica • 2026</p>
+        </header>
+
+        <section class="section-container">
+            <div class="countdown-glass" id="timer">
+                <div class="t-item"><span id="d">00</span><small>Hari</small></div>
+                <div class="t-item"><span id="h">00</span><small>Jam</small></div>
+                <div class="t-item"><span id="m">00</span><small>Menit</small></div>
+                <div class="t-item"><span id="s">00</span><small>Detik</small></div>
+            </div>
+        </section>
+
+        <section class="section-container">
+            <div class="quote-card" onclick="showNewQuote()">
+                <p id="quoteText">"Klik di sini untuk pelukan virtual... 🤗"</p>
+                <small>— Dari Shucbert dengan Sayang</small>
+            </div>
+        </section>
+
+        <section class="section-container">
+            <h3 class="section-label">Our Memories 📖</h3>
+            <div class="polaroid-slider">
+                <div class="polaroid">
+                    <div class="photo-frame"><img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?q=80&w=500"></div>
+                    <div class="photo-desc"><h4>The Start ✨</h4><p>Ingat nggak pertama kali kita punya rencana ini?</p></div>
+                </div>
+                <div class="polaroid">
+                    <div class="photo-frame"><img src="https://images.unsplash.com/photo-1522673607200-1648832cee98?q=80&w=500"></div>
+                    <div class="photo-desc"><h4>Counting Days 🌸</h4><p>Setiap detik berharga kalau dilewati bareng kamu.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-container">
+            <h3 class="section-label">Date Itinerary 📍</h3>
+            <div class="itinerary-list">
+                <div class="plan-card" id="day-28" onclick="togglePlan(this)">
+                    <div class="plan-header"><span class="day-tag pink">28 MAR</span> 🌸 Sat: Opening</div>
+                    <div class="plan-details">
+                        <p>📸 Photobooth @Tugu Jogja</p>
+                        <p>🍜 Ayam Serundeng / Mie Sapi Djaya / Ramen</p>
+                        <p>🎮 Main PS Vamos</p>
+                        <div class="outfit-tag">👗 Outfit: <b>Putih 🤍</b></div>
+                    </div>
+                </div>
+
+                <div class="plan-card" id="day-29" onclick="togglePlan(this)">
+                    <div class="plan-header"><span class="day-tag soft">29 MAR</span> ✨ Sun: Spiritual</div>
+                    <div class="plan-details">
+                        <p>⛪ Ibadah di Ganjuran</p>
+                        <p>🚶 Keliling Jogja Slow Drive</p>
+                        <div class="outfit-tag">👗 Outfit: <b>Hitam 🖤</b></div>
+                    </div>
+                </div>
+
+                <div class="plan-card" id="day-30" onclick="togglePlan(this)">
+                    <div class="plan-header"><span class="day-tag gray">30 MAR</span> 🌿 Mon: Sweet</div>
+                    <div class="plan-details">
+                        <p>💭 Optional Day / Santai</p>
+                        <p>🍦 Tempo Gelato Time!</p>
+                        <div class="outfit-tag">👗 Outfit: <b>Putih / Cream 🤎</b></div>
+                    </div>
+                </div>
+
+                <div class="plan-card" id="day-31" onclick="togglePlan(this)">
+                    <div class="plan-header"><span class="day-tag gray">31 MAR</span> 🌙 Tue: Home Date</div>
+                    <div class="plan-details"><p>🍰 Cheesecake & 🌌 Alkid Night Stroll</p></div>
+                </div>
+
+                <div class="plan-card" id="day-01" onclick="togglePlan(this)">
+                    <div class="plan-header"><span class="day-tag gray">01 APR</span> ☕ Wed: Adventure</div>
+                    <div class="plan-details"><p>📚 Buku Akik, 🛵 Skuter Kaliurang & ☕ Luke Coffee</p></div>
+                </div>
+
+                <div class="plan-card" id="day-02" onclick="togglePlan(this)">
+                    <div class="plan-header"><span class="day-tag gray">02 APR</span> 🌼 Thu: Rest</div>
+                    <div class="plan-details"><p>🌿 Free Day / Explore / Istirahat</p></div>
+                </div>
+
+                <div class="plan-card" id="day-03" onclick="togglePlan(this)">
+                    <div class="plan-header"><span class="day-tag gray">03 APR</span> 💛 Fri: Culinary</div>
+                    <div class="plan-details"><p>☕ Kopi Tuku Kotabaru & 🍜 Mie Bonafide</p></div>
+                </div>
+
+                <div class="plan-card" id="day-04" onclick="togglePlan(this)">
+                    <div class="plan-header"><span class="day-tag pink">04 APR</span> 🌸 Sat: Free Date</div>
+                    <div class="plan-details"><p>💕 Isi sesuai mood! 👕 Outfit: Bebas/Couple</p></div>
+                </div>
+
+                <div class="plan-card" id="day-05" onclick="togglePlan(this)">
+                    <div class="plan-header"><span class="day-tag soft">05 APR</span> ✨ Sun: Closing</div>
+                    <div class="plan-details"><p>🌅 Quality Time Santai 👕 Outfit: Bebas Nyaman</p></div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="main-footer">
+            <a id="waLink" href="#" class="btn-wa">Kirim Pesan Ke Shucbert 💖</a>
+            <button class="btn-surprise" onclick="showSurprise()">A Little Secret... 🤫</button>
+        </footer>
     </div>
 
-    <div class="card">
-        <span class="day">🌿 Monday</span>
-        Tempo Gelato Time!<br>
-        <small>🤎 Dresscode: Putih/Cream</small>
+    <div id="overlay" onclick="closeOverlay()">
+        <div class="overlay-card">
+            <span class="flying-heart">💖</span>
+            <h2>For You, Nica</h2>
+            <p>"Kamu adalah baris kode terindah yang pernah aku tulis. Sampai ketemu di Jogja ya, Sayang!"</p>
+            <p style="font-family: 'Pacifico';">- Shucbert</p>
+        </div>
     </div>
 
-    <div class="card">
-        <span class="day">🌙 Tuesday</span>
-        Cheesecake date & Alkid night stroll
-    </div>
-
-    <div class="card">
-        <span class="day">☕ Wednesday</span>
-        Buku Akik • Kaliurang • Chill Coffee
-    </div>
-
-    <div class="card">
-        <span class="day">🌼 Thursday</span>
-        Our little free day!
-    </div>
-
-    <div class="card">
-        <span class="day">💛 Friday</span>
-        Kopi Tuku & Mie Bonafide
-    </div>
-
-    <div style="margin: 30px 0;">
-        <button onclick="showSurprise()">klik untuk kejutan kecil ✨</button>
-    </div>
-</div>
-
-<div id="surprise">
-    <div class="big-heart">💖</div>
-    <div class="love-letter">
-        <h2>For You, Nica 🥺</h2>
-        "Aku nggak tahu ke depannya bakal gimana, tapi aku seneng banget bisa ketemu kamu sekarang. <br><br>
-        Semoga pertemuan pertama ini jadi sesuatu yang hangat dan menyenangkan buat kita berdua.<br><br>
-        Dan semoga... ini cuma awal dari banyak cerita lainnya. 💗"
-        <br><br>
-        <button onclick="back()" style="background: #ccc; margin-top: 20px;">Kembali</button>
-    </div>
-</div>
-
-<script>
-    function openApp() {
-        const password = document.getElementById("pw").value;
-        const song = document.getElementById("mySong");
-
-        if (password === "28032026") {
-            // Animasi transisi
-            document.getElementById("lock").style.opacity = "0";
-            setTimeout(() => {
-                document.getElementById("lock").style.display = "none";
-                document.getElementById("main").style.display = "block";
-                setTimeout(() => {
-                    document.getElementById("main").style.opacity = "1";
-                }, 100);
-            }, 800);
-            
-            // Putar musik (Browser butuh interaksi user dulu)
-            song.play().catch(e => console.log("Music play blocked by browser"));
-            
-            startFloating();
-        } else {
-            alert("Oops! salah passwordnya.. coba diingat lagi ya 🥺");
-        }
-    }
-
-    function showSurprise() {
-        document.getElementById("main").style.display = "none";
-        document.getElementById("surprise").style.display = "block";
-    }
-
-    function back() {
-        document.getElementById("surprise").style.display = "none";
-        document.getElementById("main").style.display = "block";
-    }
-
-    // Floating Hearts & Stars Effect
-    function startFloating() {
-        const symbols = ['💗', '✨', '🌸', '☁️', '🤍'];
-        setInterval(() => {
-            const f = document.createElement("div");
-            f.className = "floating";
-            f.innerHTML = symbols[Math.floor(Math.random() * symbols.length)];
-            f.style.left = Math.random() * 100 + "vw";
-            f.style.animationDuration = (Math.random() * 2 + 3) + "s";
-            document.body.appendChild(f);
-            setTimeout(() => f.remove(), 5000);
-        }, 500);
-    }
-</script>
-
+    <script src="script.js"></script>
 </body>
 </html>
